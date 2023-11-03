@@ -1,0 +1,254 @@
+/*
+I used this post 
+https://stackoverflow.com/questions/27330188/use-other-than-index-html-for-github-pages
+to help me figure out how to use a filename other than index.html
+*/
+
+
+/*
+Step #1 Make animation and apply to logo
+*/
+
+@keyframes pageLogo {
+    from {width: 25px; opacity: 0}
+    to {width: 475px; opacity: 1;}
+  }
+
+#logo{
+animation: pageLogo 5s linear;
+}
+
+/*
+Step #2 adjust body font, background image, and backup background-color
+*/
+
+body{
+    font-family: Poppins, serif;
+    background-color: #f1f1f1;
+    background-image: url("../images/concrete_seamless.png");
+}
+
+/*
+Step #3 make header children elements vertical list
+*/
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+Step #4 make nav links display as vertical list
+*/
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+/* 
+Step #5 make visited links still be blue
+
+For step 5 I interpreted "You should not give or receive help when completing it" to mean
+fellow classmates, and I used the following source from the internet (which I found myself)
+https://developer.mozilla.org/en-US/docs/Web/CSS/:visited
+If this was not allowed I apologize and please do not give me credit for the question.
+*/
+
+.nav_item a:visited{
+    color: blue;
+}
+
+/* 
+Step #6 style the cards 
+*/
+
+.card > header{
+    background: #288088;
+    border: #45ADAD solid 2px;
+    padding: 0px 20px 0px 20px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.card {
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+
+    /* 
+    Step #7 make it so that one card occupies each row
+    */
+    flex-basis: 450px;
+}
+
+/* 
+Step #8 make it so that one card occupies each row
+*/
+
+.pricing{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 
+Step #9 style galler images
+*/
+
+.gallery img{
+    border: #50C7C7 solid 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+/* 
+Step #10 display gallery images correctly
+*/
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 900px) {
+
+
+    /* 
+    Step #11 space out logo and links in the header, make nav links
+    display next to one
+    */
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* 
+    Step #12 make it so that cards display next to eachother with the same width
+    */
+    .pricing{
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* 
+    Step #13 make header stay at top of screen as user scrolls
+
+    For step 13 I interpreted "You should not give or receive help when completing it" to mean
+    fellow classmates, and I used the following source from the internet (which I found myself)
+    https://www.w3schools.com/howto/howto_css_fixed_menu.asp 
+    If this was not allowed I apologize and please do not give me credit for the question.
+    */
+
+    body header:nth-child(2){
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+
+    main{
+        margin-top: 98px;
+    }
+
+    }
+
+/* 
+Step #14 disable logo animation if prefers-reduced-motion selected 
+*/
+
+@media screen and (prefers-reduced-motion: reduce){
+
+    #logo{
+        animation: none;
+    }
+
+}
+
+@media print {
+
+
+    /* 
+    Step #15 change body font
+    Step #16 remove background image
+    */
+
+    body{
+        font-family: Arial, Helvetica;
+        background: none;
+    }
+
+    /* 
+    Step #17 make nav links distributed across entire width
+    */
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav{
+        width: 100%;
+    }
+
+    /* 
+    Step #18 make items align at bottom of pricing container
+    */
+    .pricing{
+        flex-direction: row;
+        align-items: end;
+        flex-wrap: nowrap;
+    }
+
+    /* 
+    Step #19 modify card width
+    */
+
+    .card{
+        flex-basis: 325px;
+        flex-wrap: nowrap;
+    }
+
+    /* 
+    Step #20 hide gallery
+    */
+    .gallery{
+        display: none;
+    }
+
+    #gallery{
+        display: none;
+    }
+
+    /* 
+    disable logo animation so logo just appears full-sized
+    */
+    #logo{
+        animation: none;
+    }
+
+    /* 
+    Step #21 add thumbs up at end of cards
+
+    For question 21 I interpreted "You should not give or receive help when completing it" to mean
+    fellow classmates, and I used the following source from the internet (which I found myself)
+    https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g#:~:text=In%20CSS%20you%20need%20to,the%20Emoji%20as%20the%20value.&text=The%20same%20way%2C%20you%20can,codepoint%20replacing%20U%2B%20with%20%5C0%20
+    If this was not allowed I apologize and please do not give me credit for the question.
+    */
+    .pricing li:last-child::after{
+
+    content:"👍"
+    }
+}
