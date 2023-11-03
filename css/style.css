@@ -1,11 +1,4 @@
 /*
-I used this post 
-https://stackoverflow.com/questions/27330188/use-other-than-index-html-for-github-pages
-to help me figure out how to use a filename other than index.html
-*/
-
-
-/*
 Step #1 Make animation and apply to logo
 */
 
@@ -219,6 +212,7 @@ Step #14 disable logo animation if prefers-reduced-motion selected
     .card{
         flex-basis: 325px;
         flex-wrap: nowrap;
+        border: #45ADDD solid 2px;
     }
 
     /* 
