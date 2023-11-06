@@ -181,11 +181,11 @@ Step #14 disable logo animation if prefers-reduced-motion selected
 
     body{
         font-family: Arial, Helvetica;
-        background: none;
+        background-image: none;
     }
 
     /* 
-    Step #17 make nav links distributed across entire width
+    Step #17 make nav links distributed across width
     */
     .nav_links{
         flex-direction: row;
@@ -193,7 +193,7 @@ Step #14 disable logo animation if prefers-reduced-motion selected
     }
 
     nav{
-        width: 100%;
+        width: 77%;
     }
 
     /* 
